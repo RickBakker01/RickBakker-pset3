@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -45,7 +46,12 @@ public class Watch_ListActivity extends AppCompatActivity {
         String name = intent.getStringExtra("name");
 
         if (name != null) {
-            tasks.add(name);
+            if (tasks.contains(name)){
+                Toast.makeText(this, "Already in list", Toast.LENGTH_SHORT).show();
+            } else {
+                tasks.add(name);
+            }
+
         }
 
             context = this;
